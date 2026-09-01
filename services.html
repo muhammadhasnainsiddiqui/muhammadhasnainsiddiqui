@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Services · Muhammad Hasnain Siddiqui</title>
+<meta name="description" content="Web development, AI chatbots, e-commerce, UI/UX design and more. Services offered by Muhammad Hasnain Siddiqui." />
+<meta property="og:title" content="Services · Muhammad Hasnain Siddiqui" />
+<meta property="og:description" content="Web development, AI chatbots, e-commerce, UI/UX design and more. Services offered by Muhammad Hasnain Siddiqui." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23cc9e4f%22>H</text></svg>" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="../css/style.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.16/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+<div id="loader"><div class="text-center"><div class="loader-mark"><span class="text-gold">MUHAMMAD</span> HASNAIN</div><div class="loader-bar"></div></div></div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="aurora"></div>
+<div id="bg-canvas"></div>
+<div class="noise-overlay"></div>
+
+<nav class="glass-nav px-6 md:px-10 py-4 flex items-center justify-between" id="navbar">
+  <a href="index.html" class="brand-mark text-xl md:text-2xl text-[var(--text)]">
+    <span class="text-gold">MUHAMMAD</span> HASNAIN <span class="text-[10px] font-normal text-[var(--text-faint)] ml-1 tracking-widest align-middle">SIDDIQUI</span>
+  </a>
+  <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <div class="mega-wrap">
+      <a href="services.html" class="nav-link active">Services</a>
+      <div class="mega-panel">
+        <div>
+          <div class="grid grid-cols-2 gap-1">
+            <a href="services.html#web" class="mega-item"><span class="mega-icon">◆</span><div><div class="mega-title">Web Development</div><div class="mega-desc">React & Next.js builds</div></div></a>
+            <a href="services.html#ai" class="mega-item"><span class="mega-icon">✦</span><div><div class="mega-title">AI Integration</div><div class="mega-desc">Chatbots & automation</div></div></a>
+            <a href="services.html#ecommerce" class="mega-item"><span class="mega-icon">▣</span><div><div class="mega-title">E-Commerce</div><div class="mega-desc">Storefronts that convert</div></div></a>
+            <a href="services.html#uiux" class="mega-item"><span class="mega-icon">◈</span><div><div class="mega-title">UI/UX Design</div><div class="mega-desc">Interfaces people enjoy</div></div></a>
+            <a href="services.html#api" class="mega-item"><span class="mega-icon">⟡</span><div><div class="mega-title">API & Cloud</div><div class="mega-desc">Integration & deployment</div></div></a>
+            <a href="services.html#seo" class="mega-item"><span class="mega-icon">◎</span><div><div class="mega-title">SEO & Performance</div><div class="mega-desc">Fast, findable sites</div></div></a>
+          </div>
+        </div>
+        <div class="mega-feature flex flex-col justify-between">
+          <div>
+            <div class="eyebrow">Featured</div>
+            <div class="font-display text-lg mt-2 text-[var(--text)]">Have a project in mind?</div>
+            <p class="text-sm text-[var(--text-faint)] mt-1">Let's scope it out together, no obligation.</p>
+          </div>
+          <a href="contact.html" class="btn-primary mt-4 px-5 py-2.5 rounded-full text-sm">Start a project →</a>
+        </div>
+      </div>
+    </div>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="flex items-center gap-3">
+    <a href="contact.html" class="hidden md:inline-flex btn-primary px-6 py-2.5 rounded-full text-sm">Hire Me</a>
+    <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center border border-[var(--border)] rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn-primary !inline-flex mt-6 px-6 py-3 rounded-full text-base w-fit">Hire Me →</a>
+</div>
+
+<div class="content-wrapper">
+<!-- ===== PAGE HERO ===== -->
+<section class="relative pt-40 pb-20 px-6 md:px-20 overflow-hidden">
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <span class="hero-bg-text">SERVICES</span>
+  </div>
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+    <span class="eyebrow hero-line">What I Offer</span>
+    <h1 class="font-display text-5xl md:text-7xl font-extrabold mt-4 hero-line">Services built for <span class="text-gold">real growth</span></h1>
+    <p class="hero-sub mt-6 max-w-2xl mx-auto text-[var(--text-dim)] text-lg font-light">From first pixel to production deploy. Everything your product needs, under one roof.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== SERVICES GRID ===== -->
+<section class="py-28 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="web" class="card reveal rounded-2xl p-9 scroll-mt-32"><div class="card-glow"></div>
+      <span class="text-3xl">◆</span>
+      <h3 class="font-display text-xl font-bold mt-4">Web Development</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Custom websites and web apps built with React and Next.js, fast, accessible, and easy to maintain.</p>
+    </div>
+    <div id="ai" class="card reveal rounded-2xl p-9 scroll-mt-32"><div class="card-glow"></div>
+      <span class="text-3xl">✦</span>
+      <h3 class="font-display text-xl font-bold mt-4">AI Chatbots &amp; Automation</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Conversational assistants and workflow automations powered by OpenAI and Gemini, trained on your data.</p>
+    </div>
+    <div id="ecommerce" class="card reveal rounded-2xl p-9 scroll-mt-32"><div class="card-glow"></div>
+      <span class="text-3xl">▣</span>
+      <h3 class="font-display text-xl font-bold mt-4">E-Commerce Stores</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Storefronts with smooth checkout, inventory tools, and payment integration built in.</p>
+    </div>
+    <div id="uiux" class="card reveal rounded-2xl p-9 scroll-mt-32"><div class="card-glow"></div>
+      <span class="text-3xl">◈</span>
+      <h3 class="font-display text-xl font-bold mt-4">UI/UX Design</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Wireframes to high-fidelity prototypes, interfaces that are as usable as they are beautiful.</p>
+    </div>
+    <div id="api" class="card reveal rounded-2xl p-9 scroll-mt-32"><div class="card-glow"></div>
+      <span class="text-3xl">⟡</span>
+      <h3 class="font-display text-xl font-bold mt-4">API Integration &amp; Cloud Deployment</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Connect third-party services and ship on reliable, scalable cloud infrastructure.</p>
+    </div>
+    <div id="seo" class="card reveal rounded-2xl p-9 scroll-mt-32"><div class="card-glow"></div>
+      <span class="text-3xl">◎</span>
+      <h3 class="font-display text-xl font-bold mt-4">SEO &amp; Performance</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Technical SEO and performance tuning so your site loads fast and ranks well.</p>
+    </div>
+    <div class="card reveal rounded-2xl p-9"><div class="card-glow"></div>
+      <span class="text-3xl">🛠</span>
+      <h3 class="font-display text-xl font-bold mt-4">Website Maintenance</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Ongoing updates, monitoring, and support so your site keeps running smoothly.</p>
+    </div>
+    <div class="card reveal rounded-2xl p-9"><div class="card-glow"></div>
+      <span class="text-3xl">🧠</span>
+      <h3 class="font-display text-xl font-bold mt-4">AI Agent Development</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Task-executing AI agents that connect to your tools and take real actions.</p>
+    </div>
+    <div class="card reveal rounded-2xl p-9"><div class="card-glow"></div>
+      <span class="text-3xl">📊</span>
+      <h3 class="font-display text-xl font-bold mt-4">Web Applications</h3>
+      <p class="text-[var(--text-faint)] text-sm mt-2 leading-relaxed">Internal tools and SaaS-style dashboards tailored to your workflow.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== PROCESS ===== -->
+<section class="py-28 px-6 md:px-20 bg-alt">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16 reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="section-title mt-2">From idea to <span class="text-gold">launch</span></h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="reveal">
+        <span class="text-5xl font-black text-[var(--text)]/5 font-display">01</span>
+        <h3 class="font-display text-lg font-bold mt-2">Discovery Call</h3>
+        <p class="text-[var(--text-faint)] text-sm mt-1">We talk through your goals and scope.</p>
+      </div>
+      <div class="reveal">
+        <span class="text-5xl font-black text-[var(--text)]/5 font-display">02</span>
+        <h3 class="font-display text-lg font-bold mt-2">Proposal &amp; Plan</h3>
+        <p class="text-[var(--text-faint)] text-sm mt-1">Clear timeline, scope, and pricing.</p>
+      </div>
+      <div class="reveal">
+        <span class="text-5xl font-black text-[var(--text)]/5 font-display">03</span>
+        <h3 class="font-display text-lg font-bold mt-2">Design &amp; Build</h3>
+        <p class="text-[var(--text-faint)] text-sm mt-1">Regular updates as the product takes shape.</p>
+      </div>
+      <div class="reveal">
+        <span class="text-5xl font-black text-[var(--text)]/5 font-display">04</span>
+        <h3 class="font-display text-lg font-bold mt-2">Launch &amp; Support</h3>
+        <p class="text-[var(--text-faint)] text-sm mt-1">Deploy, monitor, and iterate together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== PRICING ===== -->
+<section class="py-28 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2 class="section-title mt-2">Simple, <span class="text-gold">transparent plans</span></h2>
+      <p class="text-[var(--text-faint)] mt-4">Every project is scoped individually. These are starting points.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+      <div class="card reveal rounded-2xl p-10 flex flex-col"><div class="card-glow"></div>
+        <h3 class="font-display text-xl font-bold">Starter</h3>
+        <p class="text-[var(--text-faint)] text-sm mt-1">Landing pages &amp; brochure sites</p>
+        <div class="font-display text-4xl font-extrabold mt-6">$300<span class="text-base font-normal text-[var(--text-faint)]"> +</span></div>
+        <ul class="mt-6 space-y-3 text-sm text-[var(--text-dim)] flex-1">
+          <li>✓ Up to 5 pages</li><li>✓ Responsive design</li><li>✓ Basic SEO setup</li><li>✓ 1 revision round</li>
+        </ul>
+        <a href="contact.html" class="btn-outline mt-8 w-full py-3 rounded-full text-center">Get Started</a>
+      </div>
+      <div class="gradient-border reveal flex flex-col">
+        <div class="p-10 flex flex-col h-full">
+          <div class="badge inline-block w-fit mb-2 !border-gold text-gold">Most Popular</div>
+          <h3 class="font-display text-xl font-bold">Growth</h3>
+          <p class="text-[var(--text-faint)] text-sm mt-1">Full websites &amp; web apps</p>
+          <div class="font-display text-4xl font-extrabold mt-6">$800<span class="text-base font-normal text-[var(--text-faint)]"> +</span></div>
+          <ul class="mt-6 space-y-3 text-sm text-[var(--text-dim)] flex-1">
+            <li>✓ Up to 12 pages</li><li>✓ Custom UI/UX design</li><li>✓ API integrations</li><li>✓ Performance &amp; SEO tuning</li><li>✓ 3 revision rounds</li>
+          </ul>
+          <a href="contact.html" class="btn-primary mt-8 w-full py-3 rounded-full text-center">Get Started</a>
+        </div>
+      </div>
+      <div class="card reveal rounded-2xl p-10 flex flex-col"><div class="card-glow"></div>
+        <h3 class="font-display text-xl font-bold">Premium</h3>
+        <p class="text-[var(--text-faint)] text-sm mt-1">AI-powered platforms &amp; SaaS</p>
+        <div class="font-display text-4xl font-extrabold mt-6">Custom</div>
+        <ul class="mt-6 space-y-3 text-sm text-[var(--text-dim)] flex-1">
+          <li>✓ Full product build</li><li>✓ AI &amp; automation integration</li><li>✓ Cloud deployment &amp; scaling</li><li>✓ Ongoing maintenance option</li>
+        </ul>
+        <a href="contact.html" class="btn-outline mt-8 w-full py-3 rounded-full text-center">Let's Talk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== FAQ ===== -->
+<section class="py-28 px-6 md:px-20 bg-alt">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-title mt-2">Common <span class="text-gold">questions</span></h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item">
+        <div class="faq-q"><span class="font-display text-lg font-semibold">How long does a typical project take?</span><span class="faq-icon text-2xl">+</span></div>
+        <div class="faq-a"><p class="text-[var(--text-faint)] pb-6 leading-relaxed">Most brochure sites take 1–2 weeks; full web apps or AI integrations typically run 3–8 weeks depending on scope.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="font-display text-lg font-semibold">Do you work with clients outside Pakistan?</span><span class="faq-icon text-2xl">+</span></div>
+        <div class="faq-a"><p class="text-[var(--text-faint)] pb-6 leading-relaxed">Yes, I work remotely with clients worldwide and adjust calls to your timezone.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="font-display text-lg font-semibold">What do you need from me to start?</span><span class="faq-icon text-2xl">+</span></div>
+        <div class="faq-a"><p class="text-[var(--text-faint)] pb-6 leading-relaxed">A short brief on your goals, any brand assets you already have, and a rough budget or timeline, and I'll handle the rest.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="font-display text-lg font-semibold">Do you offer post-launch support?</span><span class="faq-icon text-2xl">+</span></div>
+        <div class="faq-a"><p class="text-[var(--text-faint)] pb-6 leading-relaxed">Yes, maintenance and support packages are available for all project types.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-28 px-6 md:px-20">
+  <div class="max-w-6xl mx-auto gradient-border reveal">
+    <div class="p-14 md:p-20 text-center">
+      <h2 class="font-display text-4xl md:text-6xl font-extrabold">Not sure which service <span class="text-gold">fits?</span></h2>
+      <p class="text-[var(--text-faint)] mt-6 max-w-xl mx-auto">Tell me about your project and I'll recommend the right approach.</p>
+      <a href="contact.html" class="btn-primary mt-10 inline-flex px-10 py-4 rounded-full">Book a Free Call →</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer py-20 px-6 md:px-20 mt-10">
+  <div class="footer-watermark"><span class="text-gold">HASNAIN</span></div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="md:col-span-2">
+        <div class="brand-mark text-2xl text-[var(--text)]"><span class="text-gold">MUHAMMAD</span> HASNAIN <span class="text-[10px] font-normal text-[var(--text-faint)] ml-1 tracking-widest">SIDDIQUI</span></div>
+        <p class="text-[var(--text-faint)] mt-4 max-w-sm text-sm leading-relaxed">Full Stack Developer &amp; Co-Founder, Fyrelanes, building premium, high-performance web experiences with modern AI integration.</p>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="mailto:mhasnainsiddiqui898@gmail.com" class="social-icon" aria-label="Email" title="Email">✉</a>
+          <a href="https://github.com/muhammadhasnainsiddiqui" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" title="GitHub">⌥</a>
+          <a href="https://www.instagram.com/muhammad.hasnain_siddiqui/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram" title="Instagram">◎</a>
+          <a href="https://www.linkedin.com/in/muhammad-hasnain-siddiqui-bb7534426/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="https://x.com/mhasnainsidizz" target="_blank" rel="noopener" class="social-icon" aria-label="X / Twitter" title="X">𝕏</a>
+          <a href="https://www.tiktok.com/@muhammad.hasnain_sidiqui" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok" title="TikTok">♪</a>
+          <a href="https://wa.me/923300100511" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp" title="WhatsApp">☏</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-sm font-semibold text-[var(--text)] mb-4">Navigate</div>
+        <div class="flex flex-col gap-3 text-sm text-[var(--text-faint)]">
+          <a href="index.html" class="hover:text-[var(--text)] transition">Home</a>
+          <a href="about.html" class="hover:text-[var(--text)] transition">About</a>
+          <a href="services.html" class="hover:text-[var(--text)] transition">Services</a>
+          <a href="portfolio.html" class="hover:text-[var(--text)] transition">Portfolio</a>
+          <a href="contact.html" class="hover:text-[var(--text)] transition">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-sm font-semibold text-[var(--text)] mb-4">Get in touch</div>
+        <div class="flex flex-col gap-3 text-sm text-[var(--text-faint)]">
+          <a href="mailto:mhasnainsiddiqui898@gmail.com" class="hover:text-[var(--text)] transition">mhasnainsiddiqui898@gmail.com</a>
+          <a href="tel:+923300100511" class="hover:text-[var(--text)] transition">+92 330 0100511</a>
+          <span>Available worldwide, remote-first</span>
+        </div>
+      </div>
+    </div>
+    <div class="section-divider my-10"></div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[var(--text-faint)]">
+      <div>© 2026 Muhammad Hasnain Siddiqui. All rights reserved.</div>
+      <div class="flex items-center gap-2"><span class="glow-dot"></span> Available for new projects</div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/923300100511" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7" fill="#fff"><path d="M16 2.9C8.8 2.9 2.9 8.8 2.9 16c0 2.5.7 4.9 2 7L3 29l6.2-1.9c2 1.1 4.3 1.7 6.8 1.7 7.2 0 13.1-5.9 13.1-13.1S23.2 2.9 16 2.9zm0 23.8c-2.2 0-4.3-.6-6.1-1.7l-.4-.3-4 1.2 1.2-3.9-.3-.4c-1.2-1.9-1.9-4.1-1.9-6.4C4.5 9.6 9.7 4.5 16 4.5S27.5 9.6 27.5 16 22.3 26.7 16 26.7zm6.9-8.4c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.9 5.1.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>
+</a>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

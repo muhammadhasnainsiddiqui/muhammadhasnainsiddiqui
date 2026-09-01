@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio · Muhammad Hasnain Siddiqui</title>
+<meta name="description" content="A selection of recent web, AI, and e-commerce projects by Muhammad Hasnain Siddiqui." />
+<meta property="og:title" content="Portfolio · Muhammad Hasnain Siddiqui" />
+<meta property="og:description" content="A selection of recent web, AI, and e-commerce projects by Muhammad Hasnain Siddiqui." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23cc9e4f%22>H</text></svg>" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="../css/style.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.16/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+<div id="loader"><div class="text-center"><div class="loader-mark"><span class="text-gold">MUHAMMAD</span> HASNAIN</div><div class="loader-bar"></div></div></div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="aurora"></div>
+<div id="bg-canvas"></div>
+<div class="noise-overlay"></div>
+
+<nav class="glass-nav px-6 md:px-10 py-4 flex items-center justify-between" id="navbar">
+  <a href="index.html" class="brand-mark text-xl md:text-2xl text-[var(--text)]">
+    <span class="text-gold">MUHAMMAD</span> HASNAIN <span class="text-[10px] font-normal text-[var(--text-faint)] ml-1 tracking-widest align-middle">SIDDIQUI</span>
+  </a>
+  <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <div class="mega-wrap">
+      <a href="services.html" class="nav-link ">Services</a>
+      <div class="mega-panel">
+        <div>
+          <div class="grid grid-cols-2 gap-1">
+            <a href="services.html#web" class="mega-item"><span class="mega-icon">◆</span><div><div class="mega-title">Web Development</div><div class="mega-desc">React & Next.js builds</div></div></a>
+            <a href="services.html#ai" class="mega-item"><span class="mega-icon">✦</span><div><div class="mega-title">AI Integration</div><div class="mega-desc">Chatbots & automation</div></div></a>
+            <a href="services.html#ecommerce" class="mega-item"><span class="mega-icon">▣</span><div><div class="mega-title">E-Commerce</div><div class="mega-desc">Storefronts that convert</div></div></a>
+            <a href="services.html#uiux" class="mega-item"><span class="mega-icon">◈</span><div><div class="mega-title">UI/UX Design</div><div class="mega-desc">Interfaces people enjoy</div></div></a>
+            <a href="services.html#api" class="mega-item"><span class="mega-icon">⟡</span><div><div class="mega-title">API & Cloud</div><div class="mega-desc">Integration & deployment</div></div></a>
+            <a href="services.html#seo" class="mega-item"><span class="mega-icon">◎</span><div><div class="mega-title">SEO & Performance</div><div class="mega-desc">Fast, findable sites</div></div></a>
+          </div>
+        </div>
+        <div class="mega-feature flex flex-col justify-between">
+          <div>
+            <div class="eyebrow">Featured</div>
+            <div class="font-display text-lg mt-2 text-[var(--text)]">Have a project in mind?</div>
+            <p class="text-sm text-[var(--text-faint)] mt-1">Let's scope it out together, no obligation.</p>
+          </div>
+          <a href="contact.html" class="btn-primary mt-4 px-5 py-2.5 rounded-full text-sm">Start a project →</a>
+        </div>
+      </div>
+    </div>
+    <a href="portfolio.html" class="nav-link active">Portfolio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="flex items-center gap-3">
+    <a href="contact.html" class="hidden md:inline-flex btn-primary px-6 py-2.5 rounded-full text-sm">Hire Me</a>
+    <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center border border-[var(--border)] rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn-primary !inline-flex mt-6 px-6 py-3 rounded-full text-base w-fit">Hire Me →</a>
+</div>
+
+<div class="content-wrapper">
+<!-- ===== PAGE HERO ===== -->
+<section class="relative min-h-[70vh] flex items-center justify-center pt-40 pb-20 px-6 md:px-20 overflow-hidden">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="../images/hero-bg.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="glow-orb" style="width:380px;height:380px;background:rgba(212,168,75,0.1);top:5%;right:10%;"></div>
+  <div class="glow-orb" style="width:300px;height:300px;background:rgba(78,205,196,0.08);bottom:10%;left:5%;animation-delay:-5s;"></div>
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+    <span class="hero-bg-text">WORK</span>
+  </div>
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+    <span class="eyebrow hero-line">Portfolio</span>
+    <h1 class="font-display text-5xl md:text-7xl font-extrabold mt-4 hero-line">Selected <span class="text-gold">Projects</span></h1>
+    <p class="hero-sub mt-6 max-w-2xl mx-auto text-[var(--text-dim)] text-lg font-light">A snapshot of recent work across web apps, AI tools, and e-commerce.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== FILTERS ===== -->
+<section class="pt-16 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-3 reveal" id="filterBar">
+    <button class="badge filter-btn active-filter" data-filter="all">All</button>
+    <button class="badge filter-btn" data-filter="web">Web Apps</button>
+    <button class="badge filter-btn" data-filter="ai">AI</button>
+    <button class="badge filter-btn" data-filter="ecommerce">E-Commerce</button>
+    <button class="badge filter-btn" data-filter="business">Business Sites</button>
+  </div>
+</section>
+
+<!-- ===== PROJECTS GRID ===== -->
+<section class="py-16 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8" id="projectGrid">
+
+    <div class="project-item card reveal rounded-2xl p-10" data-cat="ai"><div class="card-glow"></div>
+      <span class="text-6xl font-black text-[var(--text)]/5 font-display block">01</span>
+      <h3 class="font-display text-2xl md:text-3xl font-bold mt-2">AI Finance Dashboard</h3>
+      <p class="text-[var(--text-faint)] mt-3 font-light">Real-time analytics, predictive insights, and automated reporting for finance teams.</p>
+      <div class="flex flex-wrap gap-2 mt-6"><span class="badge">React</span><span class="badge">Node.js</span><span class="badge">AI</span></div>
+      <div class="flex gap-6 mt-8 text-sm">
+        <a href="#" class="text-gold hover:underline flex items-center gap-1">Live Demo →</a>
+        <a href="#" class="text-[var(--text-faint)] hover:text-[var(--text)] transition">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-item card reveal rounded-2xl p-10" data-cat="business"><div class="card-glow"></div>
+      <span class="text-6xl font-black text-[var(--text)]/5 font-display block">02</span>
+      <h3 class="font-display text-2xl md:text-3xl font-bold mt-2">Restaurant Website</h3>
+      <p class="text-[var(--text-faint)] mt-3 font-light">Elegant digital menu, table reservation system, and location integration.</p>
+      <div class="flex flex-wrap gap-2 mt-6"><span class="badge">Next.js</span><span class="badge">Tailwind</span><span class="badge">MongoDB</span></div>
+      <div class="flex gap-6 mt-8 text-sm">
+        <a href="#" class="text-gold hover:underline flex items-center gap-1">Live Demo →</a>
+        <a href="#" class="text-[var(--text-faint)] hover:text-[var(--text)] transition">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-item card reveal rounded-2xl p-10" data-cat="business"><div class="card-glow"></div>
+      <span class="text-6xl font-black text-[var(--text)]/5 font-display block">03</span>
+      <h3 class="font-display text-2xl md:text-3xl font-bold mt-2">Corporate Business Site</h3>
+      <p class="text-[var(--text-faint)] mt-3 font-light">Corporate identity, content management, and lead generation funnels.</p>
+      <div class="flex flex-wrap gap-2 mt-6"><span class="badge">React</span><span class="badge">Firebase</span><span class="badge">Express</span></div>
+      <div class="flex gap-6 mt-8 text-sm">
+        <a href="#" class="text-gold hover:underline flex items-center gap-1">Live Demo →</a>
+        <a href="#" class="text-[var(--text-faint)] hover:text-[var(--text)] transition">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-item card reveal rounded-2xl p-10" data-cat="ai"><div class="card-glow"></div>
+      <span class="text-6xl font-black text-[var(--text)]/5 font-display block">04</span>
+      <h3 class="font-display text-2xl md:text-3xl font-bold mt-2">AI Chatbot Platform</h3>
+      <p class="text-[var(--text-faint)] mt-3 font-light">Conversational AI with OpenAI, Gemini, and a custom knowledge base.</p>
+      <div class="flex flex-wrap gap-2 mt-6"><span class="badge">OpenAI</span><span class="badge">Gemini</span><span class="badge">Node.js</span></div>
+      <div class="flex gap-6 mt-8 text-sm">
+        <a href="#" class="text-gold hover:underline flex items-center gap-1">Live Demo →</a>
+        <a href="#" class="text-[var(--text-faint)] hover:text-[var(--text)] transition">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-item card reveal rounded-2xl p-10" data-cat="ecommerce"><div class="card-glow"></div>
+      <span class="text-6xl font-black text-[var(--text)]/5 font-display block">05</span>
+      <h3 class="font-display text-2xl md:text-3xl font-bold mt-2">Boutique E-Commerce Store</h3>
+      <p class="text-[var(--text-faint)] mt-3 font-light">Full storefront with cart, checkout, and inventory management.</p>
+      <div class="flex flex-wrap gap-2 mt-6"><span class="badge">Next.js</span><span class="badge">Stripe</span><span class="badge">MongoDB</span></div>
+      <div class="flex gap-6 mt-8 text-sm">
+        <a href="#" class="text-gold hover:underline flex items-center gap-1">Live Demo →</a>
+        <a href="#" class="text-[var(--text-faint)] hover:text-[var(--text)] transition">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-item card reveal rounded-2xl p-10" data-cat="web"><div class="card-glow"></div>
+      <span class="text-6xl font-black text-[var(--text)]/5 font-display block">06</span>
+      <h3 class="font-display text-2xl md:text-3xl font-bold mt-2">Team Collaboration Tool</h3>
+      <p class="text-[var(--text-faint)] mt-3 font-light">Internal web app for task tracking with real-time updates.</p>
+      <div class="flex flex-wrap gap-2 mt-6"><span class="badge">React</span><span class="badge">Socket.io</span><span class="badge">Express</span></div>
+      <div class="flex gap-6 mt-8 text-sm">
+        <a href="#" class="text-gold hover:underline flex items-center gap-1">Live Demo →</a>
+        <a href="#" class="text-[var(--text-faint)] hover:text-[var(--text)] transition">GitHub</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-filter'));
+      btn.classList.add('active-filter');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.project-item').forEach(item => {
+        item.style.display = (f === 'all' || item.dataset.cat === f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+<style>.active-filter{border-color:var(--gold)!important;color:var(--text)!important;background:var(--gold-dim)!important;}</style>
+
+<!-- ===== CTA ===== -->
+<section class="py-28 px-6 md:px-20">
+  <div class="max-w-6xl mx-auto gradient-border reveal">
+    <div class="p-14 md:p-20 text-center">
+      <h2 class="font-display text-4xl md:text-6xl font-extrabold">Have a project like <span class="text-gold">these?</span></h2>
+      <p class="text-[var(--text-faint)] mt-6 max-w-xl mx-auto">Let's talk about what you're trying to build.</p>
+      <a href="contact.html" class="btn-primary mt-10 inline-flex px-10 py-4 rounded-full">Start a Project →</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer py-20 px-6 md:px-20 mt-10">
+  <div class="footer-watermark"><span class="text-gold">HASNAIN</span></div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="md:col-span-2">
+        <div class="brand-mark text-2xl text-[var(--text)]"><span class="text-gold">MUHAMMAD</span> HASNAIN <span class="text-[10px] font-normal text-[var(--text-faint)] ml-1 tracking-widest">SIDDIQUI</span></div>
+        <p class="text-[var(--text-faint)] mt-4 max-w-sm text-sm leading-relaxed">Full Stack Developer &amp; Co-Founder, Fyrelanes, building premium, high-performance web experiences with modern AI integration.</p>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="mailto:mhasnainsiddiqui898@gmail.com" class="social-icon" aria-label="Email" title="Email">✉</a>
+          <a href="https://github.com/muhammadhasnainsiddiqui" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" title="GitHub">⌥</a>
+          <a href="https://www.instagram.com/muhammad.hasnain_siddiqui/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram" title="Instagram">◎</a>
+          <a href="https://www.linkedin.com/in/muhammad-hasnain-siddiqui-bb7534426/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="https://x.com/mhasnainsidizz" target="_blank" rel="noopener" class="social-icon" aria-label="X / Twitter" title="X">𝕏</a>
+          <a href="https://www.tiktok.com/@muhammad.hasnain_sidiqui" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok" title="TikTok">♪</a>
+          <a href="https://wa.me/923300100511" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp" title="WhatsApp">☏</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-sm font-semibold text-[var(--text)] mb-4">Navigate</div>
+        <div class="flex flex-col gap-3 text-sm text-[var(--text-faint)]">
+          <a href="index.html" class="hover:text-[var(--text)] transition">Home</a>
+          <a href="about.html" class="hover:text-[var(--text)] transition">About</a>
+          <a href="services.html" class="hover:text-[var(--text)] transition">Services</a>
+          <a href="portfolio.html" class="hover:text-[var(--text)] transition">Portfolio</a>
+          <a href="contact.html" class="hover:text-[var(--text)] transition">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-sm font-semibold text-[var(--text)] mb-4">Get in touch</div>
+        <div class="flex flex-col gap-3 text-sm text-[var(--text-faint)]">
+          <a href="mailto:mhasnainsiddiqui898@gmail.com" class="hover:text-[var(--text)] transition">mhasnainsiddiqui898@gmail.com</a>
+          <a href="tel:+923300100511" class="hover:text-[var(--text)] transition">+92 330 0100511</a>
+          <span>Available worldwide, remote-first</span>
+        </div>
+      </div>
+    </div>
+    <div class="section-divider my-10"></div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[var(--text-faint)]">
+      <div>© 2026 Muhammad Hasnain Siddiqui. All rights reserved.</div>
+      <div class="flex items-center gap-2"><span class="glow-dot"></span> Available for new projects</div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/923300100511" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7" fill="#fff"><path d="M16 2.9C8.8 2.9 2.9 8.8 2.9 16c0 2.5.7 4.9 2 7L3 29l6.2-1.9c2 1.1 4.3 1.7 6.8 1.7 7.2 0 13.1-5.9 13.1-13.1S23.2 2.9 16 2.9zm0 23.8c-2.2 0-4.3-.6-6.1-1.7l-.4-.3-4 1.2 1.2-3.9-.3-.4c-1.2-1.9-1.9-4.1-1.9-6.4C4.5 9.6 9.7 4.5 16 4.5S27.5 9.6 27.5 16 22.3 26.7 16 26.7zm6.9-8.4c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.9 5.1.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>
+</a>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
